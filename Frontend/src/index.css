@@ -1,3 +1,7 @@
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
+
+.h {
+  background-color: rgb(229, 222, 214);
+}
