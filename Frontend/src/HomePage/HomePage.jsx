@@ -6,9 +6,7 @@ import Footer from './Footer';
 function HomePage() {
     return ( 
         <>
-            <NavBar/>
             <Body/>
-            <Footer/>
         </>
      );
 }

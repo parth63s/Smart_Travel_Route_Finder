@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const SearchBarWithList = () => {
+const LowerCost = () => {
   const items = ["Apple", "Banana", "Cherry", "Date", "Grapes", "Mango", "Orange", "Pineapple"];
   
   const [queryFrom, setQueryFrom] = useState("");
@@ -117,4 +117,4 @@ const SearchBarWithList = () => {
   );
 };
 
-export default SearchBarWithList;
+export default LowerCost;

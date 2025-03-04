@@ -2,6 +2,18 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
-.h {
-  background-color: rgb(229, 222, 214);
+.margin {
+  margin-top: 5rem;
+}
+
+.menu {
+  color: black;
+  font-size: large;
+  padding: 0.3rem;
+}
+
+.selected {
+  color: rgb(35, 29, 41);
+  font-weight: 600;
+  border-bottom: 3px solid rgb(19, 125, 224);
 }
