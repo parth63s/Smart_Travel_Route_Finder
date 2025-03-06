@@ -1,12 +1,47 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const LowerCost = () => {
-  const items = ["Apple", "Banana", "Cherry", "Date", "Grapes", "Mango", "Orange", "Pineapple"];
+
+  const [countries, setCountries] = useState([]);
+
   
   const [queryFrom, setQueryFrom] = useState("");
   const [queryTo, setQueryTo] = useState("");
   const [isShowListFrom, setIsShowListFrom] = useState(false);
   const [isShowListTo, setIsShowListTo] = useState(false);
+  
+  useEffect(() => {
+    const fetchData = async ()=> {
+        try {
+            const requestData = {
+                search : queryFrom
+              };
+            const response = await axios.post("http://127.0.0.1:5000/SearchCountries", requestData);
+            setCountries(response.data)
+        } catch (error) {
+            console.log("Error fetching data : ", error)
+        }
+    }
+    fetchData();
+
+  }, [queryFrom]);
+
+  useEffect(() => {
+    const fetchData = async ()=> {
+        try {
+            const requestData = {
+                search : queryTo
+              };
+            const response = await axios.post("http://127.0.0.1:5000/SearchCountries", requestData);
+            setCountries(response.data)
+        } catch (error) {
+            console.log("Error fetching data : ", error)
+        }
+    }
+    fetchData();
+    
+  }, [queryTo]);
 
   const handleSearchFrom = (event) => {
     const value = event.target.value;
@@ -47,8 +82,8 @@ const LowerCost = () => {
                     </div>
                     {isShowListFrom && queryFrom && (
                         <ul className="list-group mt-2 overflow-auto" style={{ maxHeight: "150px" }}>
-                        {items.length > 0 ? (
-                            items.map((item, index) => (
+                        {countries.length > 0 ? (
+                            countries.map((item, index) => (
                             <li key={index} className="list-group-item list-group-item-action" onClick={() => handleListFrom(item)}>
                                 {item}
                             </li>
@@ -79,8 +114,8 @@ const LowerCost = () => {
                     </div>
                     {isShowListTo && queryTo && (
                         <ul className="list-group mt-2 overflow-auto" style={{ maxHeight: "150px" }}>
-                        {items.length > 0 ? (
-                            items.map((item, index) => (
+                        {countries.length > 0 ? (
+                            countries.map((item, index) => (
                             <li key={index} className="list-group-item list-group-item-action" onClick={() => handleListTo(item)}>
                                 {item}
                             </li>
