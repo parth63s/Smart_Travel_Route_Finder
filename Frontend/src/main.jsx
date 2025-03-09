@@ -6,6 +6,7 @@ import HomePage from './HomePage/HomePage.jsx'
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import NavBar from './HomePage/NavBar.jsx'
 import Footer from './HomePage/Footer.jsx'
+import ShowPath from './HomePage/ShowPath.jsx';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>

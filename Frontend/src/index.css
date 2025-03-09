@@ -17,3 +17,15 @@
   font-weight: 600;
   border-bottom: 3px solid rgb(19, 125, 224);
 }
+
+.background {
+  background-color: #F0F8FF !important;
+}
+
+.navbar-background {
+  background-color: rgba(32, 6, 125, 0.626)!important;
+}
+
+.logo {
+  color: aliceblue !important;
+}
