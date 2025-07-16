@@ -1,6 +1,10 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import data;
+import os
+
+port = int(os.environ.get('PORT', 5000))
+
 
 root = data.Trie()
 i = 0
@@ -11,7 +15,8 @@ for country in data.countries :
 
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["https://smart-travel-route-finder.vercel.app"])
+
 
 @app.route('/allCountries')
 def AllCountries():
@@ -49,4 +54,4 @@ def priceWithCountry() :
     return jsonify(data.MST(nodes));
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)  # Runs on http://127.0.0.1:5000/
+    app.run(debug=False, host='0.0.0.0', port=port)
